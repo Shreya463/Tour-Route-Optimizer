@@ -53,6 +53,7 @@ int main() {
     int size = 0;
 
     printf("Enter the places you wish to visit:\n");
+    printf("Enter the location you want to start with as the first one:\n");
 
     while (size < 15 && scanf("%d", &array[size]) == 1) {
         size++;
@@ -103,7 +104,7 @@ int main() {
     /*printf("\nSpanning Tree Matrix:\n");
     printMatrix(g2->arr, n);*/
     printf("final Route of travel:\n");
-    int* a=dfs(g2->arr,n,1);
+    int* a=dfs(g2->arr,n,0);
     int*b=(int*)malloc(sizeof(int)*n);
     for(int i=0;i<n;i++)
     {
