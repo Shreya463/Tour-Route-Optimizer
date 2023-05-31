@@ -1,0 +1,15 @@
+0.Hawa Mahal, Jaipur
+1.The City Palace of Udaipur
+2.Bikaner
+3.Ajmer
+4.Chittorgarh
+5.Jhalawar
+6.Ranthambore
+7.Longewala War memorial
+8.Mehrangarh fort
+9.Bundi
+10.Pushkar
+11.Mount Abu
+12.Kota
+13.Sikar
+14.Jantar Mantar
