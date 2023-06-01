@@ -35,7 +35,7 @@ Graph spanningTree(Graph g1, int n) {
             continue;
         }
 
-        vis[node] = 1;
+        vis[node] = 1;//mark visited
 
         if (parent >= 0) {
             g2->arr[node][parent] = wt;//assigning value in MST
