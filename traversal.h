@@ -4,9 +4,23 @@
 #include<string.h>
 #include"Stack.h"
 #define MAX_SIZE 30
-int* dfs(int graph[MAX_SIZE][MAX_SIZE], int vertices, int start) {
+int findVertexWithOneConnection(int** adjacencyMatrix, int numVertices) {
+    for (int i = 0; i < numVertices; i++) {
+        int connectionCount = 0;
+        for (int j = 0; j < numVertices; j++) {
+            if (adjacencyMatrix[i][j] == 1) {
+                connectionCount++;
+            }
+        }
+        if (connectionCount == 1) {
+            return i;
+        }
+    }
+    return -1; // If no such vertex is found
+}
+int* dfs(int graph[MAX_SIZE][MAX_SIZE], int vertices) {
     int visited[MAX_SIZE] = {0}; // Array to track visited vertices
-
+    int start=findVertexWithOneConnection(graph,vertices);
     struct Stack stack;
     create(&stack);
 
