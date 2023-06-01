@@ -39,7 +39,7 @@ int* dfs(int graph[MAX_SIZE][MAX_SIZE], int vertices) {
 
             // Traverse the neighbors of the current vertex
             for (int i = 0; i < vertices; i++) {
-                if (graph[vertex][i] != 0 && !visited[i]) {
+                if (graph[vertex][i] != 0 && graph[vertex][i] != -1 && !visited[i]) {
                     push(&stack, i); // Push unvisited neighbor onto the stack
                 }
             }

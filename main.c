@@ -98,11 +98,11 @@ int main() {
     int n = size;
    Graph g2 = spanningTree(g1,n);
 
-    /*printf("Original Matrix:\n");
-    printMatrix(g1->arr, n);*/
+    printf("Original Matrix:\n");
+    printMatrix(g1->arr, n);
     
-    /*printf("\nSpanning Tree Matrix:\n");
-    printMatrix(g2->arr, n);*/
+    printf("\nSpanning Tree Matrix:\n");
+    printMatrix(g2->arr, n);
     printf("final Route of travel:\n");
     int* a=dfs(g2->arr,n);
     int*b=(int*)malloc(sizeof(int)*n);
