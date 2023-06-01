@@ -104,7 +104,7 @@ int main() {
     /*printf("\nSpanning Tree Matrix:\n");
     printMatrix(g2->arr, n);*/
     printf("final Route of travel:\n");
-    int* a=dfs(g2->arr,n,0);
+    int* a=dfs(g2->arr,n);
     int*b=(int*)malloc(sizeof(int)*n);
     for(int i=0;i<n;i++)
     {

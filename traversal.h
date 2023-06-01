@@ -4,16 +4,17 @@
 #include<string.h>
 #include"Stack.h"
 #define MAX_SIZE 30
-int findVertexWithOneConnection(int** adjacencyMatrix, int numVertices) {
+int findVertexWithOneConnection(int adjacencyMatrix[MAX_SIZE][MAX_SIZE], int numVertices) {
     for (int i = 0; i < numVertices; i++) {
         int connectionCount = 0;
         for (int j = 0; j < numVertices; j++) {
-            if (adjacencyMatrix[i][j] == 1) {
+            if (adjacencyMatrix[i][j]!=0 && adjacencyMatrix[i][j]!=-1 ) {
                 connectionCount++;
             }
         }
         if (connectionCount == 1) {
             return i;
+            
         }
     }
     return -1; // If no such vertex is found
