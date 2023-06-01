@@ -52,7 +52,7 @@ int main() {
     int array[15];
     int size = 0;
 
-    printf("Enter the places you wish to visit:\n");
+    printf("\nEnter the places you wish to visit:\n\n");
 
     while (size < 15 && scanf("%d", &array[size]) == 1) {
         size++;
@@ -61,7 +61,7 @@ int main() {
         }
     }
 
-    printf("The places you entered are: ");
+    printf("\nThe places you entered are: ");
     for (int i = 0; i < size; i++) {
         printf("%d ", array[i]);
     }
@@ -97,12 +97,12 @@ int main() {
     int n = size;
    Graph g2 = spanningTree(g1,n);
 
-    printf("Original Matrix:\n");
+    /*printf("Original Matrix:\n");
     printMatrix(g1->arr, n);
     
     printf("\nSpanning Tree Matrix:\n");
-    printMatrix(g2->arr, n);
-    printf("final Route of travel:\n");
+    printMatrix(g2->arr, n);*/
+    printf("\nfinal Route of travel:\n");
     int* a=dfs(g2->arr,n);
     int*b=(int*)malloc(sizeof(int)*n);
     for(int i=0;i<n;i++)
