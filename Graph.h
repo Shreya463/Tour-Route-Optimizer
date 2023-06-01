@@ -12,20 +12,20 @@ typedef struct {
 typedef GraphData* Graph;
 
 Graph spanningTree(Graph g1, int n) {
-    Graph g2 = (Graph)malloc(sizeof(GraphData));
+    Graph g2 = (Graph)malloc(sizeof(GraphData));//spanning tree matrix
     memset(g2->arr, -1, sizeof(g2->arr));
 
     Heap* h = (Heap*)malloc(sizeof(Heap));
     h->size = 0;
     h->maxSize = n * n;
 
-    int* vis = (int*)malloc(n * sizeof(int));
+    int* vis = (int*)malloc(n * sizeof(int));//visited array
     memset(vis, 0, n * sizeof(int));
 
-    insertMin(h, 0, 0, -1);
+    insertMin(h, 0, 0, -1);//insert 0th node
 
     while (!empty(h)) {
-        int* t = top(h);
+        int* t = top(h);//top of min heap
         int wt = t[0];
         int node = t[1];
         int parent = t[2];
@@ -38,13 +38,13 @@ Graph spanningTree(Graph g1, int n) {
         vis[node] = 1;
 
         if (parent >= 0) {
-            g2->arr[node][parent] = wt;
+            g2->arr[node][parent] = wt;//assigning value in MST
             g2->arr[parent][node] = wt;
         }
 
         for (int i = 0; i < n; i++) {
             if (vis[i] != 1 && g1->arr[node][i] != -1) {
-                insertMin(h, g1->arr[node][i], i, node);
+                insertMin(h, g1->arr[node][i], i, node);//insert adjacent nodes
             }
         }
     }
@@ -52,7 +52,7 @@ Graph spanningTree(Graph g1, int n) {
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
             if (i == j) {
-                g2->arr[i][j] = 0;
+                g2->arr[i][j] = 0;//adding 0
             }
         }
     }

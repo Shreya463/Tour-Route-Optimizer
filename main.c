@@ -53,7 +53,6 @@ int main() {
     int size = 0;
 
     printf("Enter the places you wish to visit:\n");
-    printf("Enter the location you want to start with as the first one:\n");
 
     while (size < 15 && scanf("%d", &array[size]) == 1) {
         size++;
