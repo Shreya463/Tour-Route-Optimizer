@@ -4,7 +4,39 @@
 #include<string.h>
 #include"Stack.h"
 #define MAX_SIZE 30
-int findVertexWithOneConnection(int adjacencyMatrix[MAX_SIZE][MAX_SIZE], int numVertices) {
+int randarr[15];
+void printarray(int* arr, int size) {
+    for (int i = 0; i < size; i++) {
+        
+         printf("%d\t", arr[i]);  
+            
+    }
+}
+int printarray2(int arr1[],int arr2[],int size)
+{
+    int b[size];
+    printf("Enter desired start location from the following:");
+    for(int i=0;i<size;i++)
+    {
+        int m=arr1[i];
+        b[i]=arr2[m];
+    }
+    printarray(b,size);
+    printf("\n");
+    int loc;
+    scanf("%d",&loc);
+    int j;
+    for(j=0;j<size;j++)
+    {
+        if(loc==b[j])
+        {
+            break;
+        }
+    }
+    return arr1[j];
+}
+int findVertexWithOneConnection(int adjacencyMatrix[MAX_SIZE][MAX_SIZE], int numVertices,int array[]) {
+    int k=0;
     for (int i = 0; i < numVertices; i++) {
         int connectionCount = 0;
         for (int j = 0; j < numVertices; j++) {
@@ -13,15 +45,17 @@ int findVertexWithOneConnection(int adjacencyMatrix[MAX_SIZE][MAX_SIZE], int num
             }
         }
         if (connectionCount == 1) {
-            return i;
-            
+            randarr[k]=i;
+            k++;
         }
     }
-    return -1; // If no such vertex is found
+    int ret=printarray2(randarr,array,k);
+    return ret;
+    
 }
-int* dfs(int graph[MAX_SIZE][MAX_SIZE], int vertices) {
+int* dfs(int graph[MAX_SIZE][MAX_SIZE], int vertices,int array[]) {
     int visited[MAX_SIZE] = {0}; // Array to track visited vertices
-    int start=findVertexWithOneConnection(graph,vertices);
+    int start=findVertexWithOneConnection(graph,vertices,array);
     struct Stack stack;
     create(&stack);
 
@@ -47,10 +81,4 @@ int* dfs(int graph[MAX_SIZE][MAX_SIZE], int vertices) {
     }
 
     return traversedNodes;
-}
-
-void printarray(int* arr, int size) {
-    for (int i = 0; i < size; i++) {
-        printf("%d\t", arr[i]);
-    }
 }

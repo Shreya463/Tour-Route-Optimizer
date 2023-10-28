@@ -17,7 +17,7 @@ Graph spanningTree(Graph g1, int n) {
 
     Heap* h = (Heap*)malloc(sizeof(Heap));
     h->size = 0;
-    h->maxSize = n * n;
+    h->maxSize = (n+1)* (n+1);
 
     int* vis = (int*)malloc(n * sizeof(int));//visited array
     memset(vis, 0, n * sizeof(int));

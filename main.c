@@ -97,23 +97,26 @@ int main() {
     int n = size;
    Graph g2 = spanningTree(g1,n);
 
-    /*printf("Original Matrix:\n");
+    printf("Original Matrix:\n");
     printMatrix(g1->arr, n);
     
     printf("\nSpanning Tree Matrix:\n");
-    printMatrix(g2->arr, n);*/
-    printf("\nfinal Route of travel:\n");
-    int* a=dfs(g2->arr,n);
+    printMatrix(g2->arr, n);
+    
+    int* a=dfs(g2->arr,n,array);
     int*b=(int*)malloc(sizeof(int)*n);
     for(int i=0;i<n;i++)
     {
         int m=a[i];
         b[i]=array[m];
     }
+    printf("\nfinal Route of travel:\n");
     printarray(b,n);
-    int total=sumgraph(g2,size)*12;
+    int total=sumgraph(g2,size);
     printf("\n");
-    printf("The cost of travelling is Rs.%d",total);
+    printf("The total distance required to travel is:%d km",total);
+    printf("\n");
+    printf("The cost of travelling is Rs.%d",total*12);
     free(g1);
     free(g2);
 
